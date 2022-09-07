@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: training-hello
+spec:
+  selector:
+    matchLabels:
+      app: training-hello
+  template:
+    metadata:
+      labels:
+        app: training-hello
+    spec:
+      containers:
+      - name: training-hello
+        image: borbassandor/training-hello:2.0.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8090
